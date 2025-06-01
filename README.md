@@ -1,9 +1,10 @@
 # mqtt-config-java
-#curl command to download the json file 
+
 # run the jar file and use this URL from post man 
 POST localhost:8080/upload-multiple
 ![image](https://github.com/user-attachments/assets/52ac8e80-28fa-497e-a0e1-a335d5fd0d10)
 
+#curl command to download the json file 
 
 & "C:\Windows\System32\curl.exe" -X POST http://localhost:8080/upload-multiple `
 >>   -F "deviceid=@<path to file>" `
