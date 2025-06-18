@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -45,8 +47,11 @@ public class FileUploadController {
                                                        @RequestParam("client_key") MultipartFile client_key_file) throws IOException {
             List<Channel> channels = new ArrayList<>();
 
-           // for (MultipartFile file4 : List.of(file1, file2, file3)) {
-                String deviceID = new String(device_id.getBytes(), StandardCharsets.UTF_8).replaceAll("[\\r\\n]+", "");
+            BufferedReader br = new BufferedReader(new InputStreamReader(device_id.getInputStream()));
+
+                String deviceID = br.readLine();   // Line 1
+                String broker_url = br.readLine();  // Line 2
+
                 String ca_cert = new String(ca_cert_file.getBytes(), StandardCharsets.UTF_8).replaceAll("[\\r\\n]+", "");
                 String client_cert = new String(client_cert_file.getBytes(), StandardCharsets.UTF_8).replaceAll("[\\r\\n]+", "");
                 String client_key = new String(client_key_file.getBytes(), StandardCharsets.UTF_8).replaceAll("[\\r\\n]+", "");
@@ -57,7 +62,7 @@ public class FileUploadController {
                         false,                            // is_jwt_auth
                         "927117940591",                   // project_id
                         deviceID,                   // client_id
-                        "ssl://example-broker.com:8883",  // broker_url
+                        broker_url,  // broker_url
                         "ssil/bbu",                       // topic_root
                         deviceID,                   // device_id
                         5,
@@ -94,6 +99,8 @@ public class FileUploadController {
                     .headers(headers)
                     .body(jsonData);
         }
+
+
 
     private String cleanFileContent(MultipartFile file) throws IOException, IOException {
         // Read file as string and remove all newline characters
