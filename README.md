@@ -14,3 +14,17 @@ POST localhost:8080/upload-multiple
 >>   -o mqtt.json
 >>
 >> 
+
+Added a new rest API call to publish messages to IOT core topics/things
+URL - localhost:8080/publish
+Method Type - POST 
+Request body- "{
+  "certType": "clientCert",
+  "filename": "bbu-device-cert.pem",
+  "content": "----BEGIN RSA PRIVATE KEY-----
+-----END CERTIFICATE-----"
+}"
+![image](https://github.com/user-attachments/assets/a4ebf9eb-1eef-4023-a484-4a86c5f6aae9)
+
+On AWS side you can see the published payload -
+![image](https://github.com/user-attachments/assets/bf52cf17-6cdf-4877-805d-cbef4c9d0317)
