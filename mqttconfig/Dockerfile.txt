@@ -1,0 +1,14 @@
+# Use Amazon Corretto 21 as the base image
+FROM amazoncorretto:21
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy your Spring Boot JAR file into the container
+COPY target/mqttconfig-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose the Spring Boot default port (adjust if different)
+EXPOSE 8080
+
+# Command to run your application
+ENTRYPOINT ["java", "-jar", "app.jar"]
