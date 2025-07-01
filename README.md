@@ -1,4 +1,11 @@
 # mqtt-config-java
+This application interacts with AWS so please set the aws_access_key and aws_secret_key as environment variables before running.
+**For windows -** 
+set AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY
+set AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
+**For LINUX -**
+export AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY
+export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 
 # run the jar file and use this URL from post man 
 POST localhost:8080/upload-multiple
@@ -15,8 +22,8 @@ POST localhost:8080/upload-multiple
 >>
 >> 
 
-Added a new rest API call to publish messages to IOT core topics/things
-URL - localhost:8080/publish
+**Added a new rest API call to publish messages to IOT core topics/things
+URL - localhost:8080/publish**
 Method Type - POST 
 Request body- "{
   "certType": "clientCert",
@@ -29,8 +36,8 @@ Request body- "{
 On AWS side you can see the published payload -
 ![image](https://github.com/user-attachments/assets/bf52cf17-6cdf-4877-805d-cbef4c9d0317)
 
-Added a new rest API call to create thing and create certificate and attach certs to the thing on AWS, stores the cert information in the s3 bucket -
-URL - localhost:8080/register/{thingName}
+**Added a new rest API call to create thing and create certificate and attach certs to the thing on AWS, stores the cert information in the s3 bucket -
+URL - localhost:8080/register/{thingName}**
 Method Type - POST 
 ![image](https://github.com/user-attachments/assets/772e3cf3-96e4-4d03-99f1-17e405cb66ab)
 ![image](https://github.com/user-attachments/assets/5c3d26a8-3e1b-4963-85e5-bbb9b64e5f8e)
@@ -38,8 +45,8 @@ Method Type - POST
 
 Another API to retrieve appropriate keys and generate mqtt.json file for the users -
 
-URL - localhost:8080/retrievemqttjsonfile/{thingName}
-Method type - POST
+**URL - localhost:8080/retrievemqttjsonfile/{thingName}
+Method type - POST**
 ![image](https://github.com/user-attachments/assets/bb161ccb-c7bb-435b-b12d-93d671fe38cb)
 
 
