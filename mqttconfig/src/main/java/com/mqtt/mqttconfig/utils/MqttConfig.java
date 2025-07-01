@@ -6,7 +6,6 @@ import com.amazonaws.services.iot.client.AWSIotQos;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mqtt.mqttconfig.dto.CertPayload;
 import com.mqtt.mqttconfig.dto.MyMessage;
-import com.mqtt.mqttconfig.dto.CertPayload;
 import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,8 +16,8 @@ public class MqttConfig {
     String clientEndpoint = "a3v9kg7srit2ky-ats.iot.us-east-2.amazonaws.com";   // use value returned by describe-endpoint --endpoint-type "iot:Data-ATS"
    //thing name
     String clientId = "test_java";
-    String awsAccessKeyId="AKIAX4NVY3N5ICE3ZGW7";
-    String awsSecretAccessKey="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";
+    String awsAccessKeyId     = System.getenv("AWS_ACCESS_KEY_ID");
+    String awsSecretAccessKey = System.getenv("AWS_SECRET_ACCESS_KEY");
     AWSIotMqttClient client = null;
     // replace with your own client ID. Use unique client IDs for concurrent connections.
     public void connectToIot() throws AWSIotException {
