@@ -92,7 +92,7 @@ public class CreateThingService {
   }
 
     public ResponseEntity<byte[]> retriveThingInfoFroms3(String thingName) throws JsonProcessingException {
-        String bucketName = "certsbucket19";
+        String bucketName = "production-enb";
          Map<String, String> certData = new HashMap<>();
             certData.put("thingName", thingName);
             certData.put("certificate", getFileFromS3(bucketName, thingName + "/certificate.pem"));
