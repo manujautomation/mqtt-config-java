@@ -75,7 +75,7 @@ public class CreateThingService {
         System.out.println("✅ Certificate attached to Thing: " + thingName);
     }
     public void storeCertificatesToS3(String thingName, String certPem, String publicKey, String privateKey) {
-        String bucketName = "certsbucket19";
+        String bucketName = "storecerts25";
         uploadToS3(bucketName, thingName + "/certificate.pem", certPem);
         uploadToS3(bucketName, thingName + "/public.key", publicKey);
         uploadToS3(bucketName, thingName + "/private.key", privateKey);
